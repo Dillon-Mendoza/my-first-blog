@@ -1,8 +1,3 @@
-superuser
-    username: mudd
-    email: mudd.network@gmail.com
-    password: august1003
-
 # Python
 *.pyc
 *~
