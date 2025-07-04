@@ -1,0 +1,149 @@
+:root {
+    --green-teal: #3d685e;
+    --orange-rust: #bb6730;
+    --gray-concrete: #404039;
+    --dark-forest: #1a4341;
+    --midnight-purple: #0c0416;
+    --light-text: #f1f1f1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--midnight-purple);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--light-text);
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+/* === HEADER === */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 4px dashed var(--gray-concrete);
+    animation: fadeDown 1s ease-out;
+}
+
+header h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header h1 a {
+    color: var(--orange-rust);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header h1 a:hover {
+    color: var(--green-teal);
+}
+
+/* === ARTICLES === */
+article {
+    background-color: var(--gray-concrete);
+    border-left: 10px solid var(--orange-rust);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    animation: popIn 0.7s ease forwards;
+}
+
+/* Spray-paint overlay effect (optional PNG image) */
+article::before {
+    content: '';
+    background-image: url("{% static 'blog/spray-can.png' %}");
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 60px;
+    height: 60px;
+    opacity: 0.2;
+    transform: rotate(-20deg);
+    animation: canPulse 3s infinite ease-in-out;
+}
+
+article time {
+    font-size: 0.9rem;
+    color: var(--green-teal);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+article h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--orange-rust);
+}
+
+article h2 a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+
+article h2 a:hover {
+    border-color: var(--green-teal);
+}
+
+article p {
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: #e2e2e2;
+}
+
+/* === Animations === */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes canPulse {
+    0%, 100% {
+        transform: rotate(-20deg) scale(1);
+    }
+    50% {
+        transform: rotate(-20deg) scale(1.1);
+    }
+}
+
+/* === Responsive === */
+@media (min-width: 768px) {
+    body {
+        padding: 4rem 8rem;
+    }
+
+    article {
+        padding: 2rem;
+    }
+}
