@@ -54,7 +54,8 @@ h4 {
 
 .post > .date,
 .post > .actions {
-    float: right;
+    /* float: right; */
+    float: none;
 }
 
 .btn-secondary,
