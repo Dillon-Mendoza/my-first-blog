@@ -29,3 +29,6 @@ def approve(self):
 
 def __str__(self):
     return self.text
+
+def approved_comments(self):
+    return self.comments.filter(approved_comments=True)
